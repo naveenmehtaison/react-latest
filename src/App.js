@@ -1,10 +1,12 @@
 import NewComponent from './componentss/NewComponents';
+import SecondComponent from './componentss/SecondComponents';
 
 function App() {
   return (
     <div>
-      <h1>helloiaminreact</h1>
+      <h1>Lets get started</h1>
       <NewComponent></NewComponent>
+      <SecondComponent></SecondComponent>
     </div>
   );
 }
