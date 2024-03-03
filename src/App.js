@@ -1,9 +1,10 @@
-
+import NewComponent from './componentss/NewComponents';
 
 function App() {
   return (
     <div>
-      App
+      <h1>helloiaminreact</h1>
+      <NewComponent></NewComponent>
     </div>
   );
 }
