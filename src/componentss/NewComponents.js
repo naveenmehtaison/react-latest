@@ -1,19 +1,16 @@
 import './NewComponent.css'
-function NewComponent(){
-    const expenseDate = new Date(2023, 3, 4)
-    const expenseTittle = "Car Insurance"
-    const expenseAmount = 928.32
-    const LocationOfExpenditure = 'uttrakhnad'
+function NewComponent(props){
+
     return (
         <div className='expense-item'>
             {/* <h1>Expense Tracker</h1> */}
-            <div>{expenseDate.toISOString()}</div>
+            <div>{props.date.toISOString()}</div>
             <div className='expense-item__description'>
-                <h2>{expenseTittle}</h2>
-                <div className='expense-item__price'>{expenseAmount}</div>
+                <h2>{props.tittle}</h2>
+                <div className='expense-item__price'>{props.amount}</div>
             </div>
             <div className='expense-item__description'>
-                <h2>{ LocationOfExpenditure}</h2>
+                <h2>{props.location}</h2>
             </div>
         </div>
     
