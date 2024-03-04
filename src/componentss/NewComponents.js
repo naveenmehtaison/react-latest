@@ -1,20 +1,14 @@
-import './NewComponent.css'
-function NewComponent(props){
+import './NewComponent.css';
+import NewComponentDate from './NewComponentDate.js';
+import NewComponentDetails from './NewComponentDetails.js';
 
+function NewComponent(props) {
     return (
         <div className='expense-item'>
-            {/* <h1>Expense Tracker</h1> */}
-            <div>{props.date.toISOString()}</div>
-            <div className='expense-item__description'>
-                <h2>{props.tittle}</h2>
-                <div className='expense-item__price'>{props.amount}</div>
-            </div>
-            <div className='expense-item__description'>
-                <h2>{props.location}</h2>
-            </div>
+            <NewComponentDate date={props.date}/>
+            <NewComponentDetails amount={props.amount} location={props.location} tittle={props.tittle}/>
         </div>
-    
-    )
-    
+    );
 }
-export default NewComponent
+
+export default NewComponent;
