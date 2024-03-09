@@ -1,7 +1,10 @@
-import NewComponent from './componentss/NewComponents';
-// import SecondComponent from './componentss/SecondComponents';
+import NewComponent from './componentss/Expenses/NewComponents'; 
+import NewComponentDetails from './componentss/Expenses/NewComponentDetails';
+import NewComponentDate from './componentss/Expenses/NewComponentDate';
 
-function App() {
+// import SecondComponent from './componentss/SecondComponents';
+const App =() => {
+  
   const expenses = [
     {expenseDate : new Date(2023, 3, 4),
     expenseTittle :"Car Insurance",
@@ -22,36 +25,20 @@ function App() {
     expenseAmount : 98000.32,
     LocationOfExpenditure : 'uttrakhnad'}
   ]
+
   return (
-    <div>
-      <h1>Lets get started</h1>
-      
-      <NewComponent
-        tittle={expenses[0].expenseTittle}
-        amount={expenses[0].expenseAmount}
-        date={expenses[0].expenseDate}
-        location={expenses[0].LocationOfExpenditure}
-      ></NewComponent>
-      <NewComponent
-        tittle={expenses[1].expenseTittle}
-        amount={expenses[1].expenseAmount}
-        date={expenses[1].expenseDate}
-        location={expenses[1].LocationOfExpenditure}
-      ></NewComponent>
-      <NewComponent
-        tittle={expenses[2].expenseTittle}
-        amount={expenses[2].expenseAmount}
-        date={expenses[2].expenseDate}
-        location={expenses[2].LocationOfExpenditure}
-      ></NewComponent>
-      <NewComponent
-        tittle={expenses[3].expenseTittle}
-        amount={expenses[3].expenseAmount}
-        date={expenses[3].expenseDate}
-        location={expenses[3].LocationOfExpenditure}
-      ></NewComponent>
+    <div >
+
+
+      {expenses.map((ele,i)=>(
+        <NewComponent date ={ele.expenseDate}
+                tittle={ele.expenseTittle}
+                amount={ele.expenseAmount}
+                location={ele.LocationOfExpenditure}/>
+      ))}
     </div>
-  );
+  )
+
 }
 export default App;
 

@@ -1,14 +1,16 @@
 import './NewComponent.css';
 import NewComponentDate from './NewComponentDate.js';
 import NewComponentDetails from './NewComponentDetails.js';
+import Card from '../Ui/card.js';
 
-function NewComponent(props) {
+const NewComponent=(props)=> {
     return (
         <div className='expense-item'>
+            
             <NewComponentDate date={props.date}/>
             <NewComponentDetails amount={props.amount} location={props.location} tittle={props.tittle}/>
         </div>
+
     );
 }
-
-export default NewComponent;
+export default NewComponent
