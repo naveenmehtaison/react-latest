@@ -1,4 +1,5 @@
 import NewComponent from './componentss/Expenses/NewComponents'; 
+import ExpenseForm from './componentss/Expenses/ExpenseForm';
 import NewComponentDetails from './componentss/Expenses/NewComponentDetails';
 import NewComponentDate from './componentss/Expenses/NewComponentDate';
 
@@ -29,7 +30,7 @@ const App =() => {
   return (
     <div >
 
-
+      <ExpenseForm/>
       {expenses.map((ele,i)=>(
         <NewComponent date ={ele.expenseDate}
                 tittle={ele.expenseTittle}
