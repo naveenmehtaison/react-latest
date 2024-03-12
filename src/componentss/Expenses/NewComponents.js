@@ -5,6 +5,7 @@ import NewComponentDetails from './NewComponentDetails.js';
 import Card from '../Ui/card.js';
 
 const NewComponent=(props)=> {
+
     const [tittle, setTittle]=useState(props.tittle)
     const [tittle2, setTittle2]=useState(props.amount)
     const clickHandler =()=>{
@@ -25,9 +26,6 @@ const NewComponent=(props)=> {
             const parentDescription = prices[i].parentElement;
             if(prices[i].textContent==k){
                 parentDescription.removeChild(prices[i]);
-            }
-            else{
-                console.log(prices[i].textContent,k)
             }
         }
     }
