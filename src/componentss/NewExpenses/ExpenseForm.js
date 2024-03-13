@@ -1,32 +1,52 @@
 import React, {useState} from "react";
 import './ExpenseForm.css'
 function ExpenseForm(){
+    // const [userInput, setUserInput]=useState({
+    //     enteredTittle:'',
+    //     entereddate:'',
+    //     enteredamount:''
+    // })
     const [enteredTittle, setentredtittle]= useState('')
     const [enteredamount, setentredamount]= useState('')
     const [enteredTdate, setentreddate]= useState('')
     const handlename=(event)=>{
         setentredtittle(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTittle:event.target.value
+        // })
     }
     const handleamount=(event)=>{
         setentredamount(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     enteredamount:event.target.value
+        // })
     }
     const handledate=(event)=>{
         setentreddate(event.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTdate:event.target.value
+        // })
     }
 
-    function handleFormSubmit(){
-
-        
+    function handleFormSubmit(event){
+        event.preventDefault()
         const username = document.getElementById('username')
         const amount = document.getElementById('amount')
         const date = document.getElementById('date')
-        const user_details = { username:username.value, amount:amount, date:date}
-
+        const user_details = { username:username.value, amount:amount.value, date:date.value}
+        console.log(user_details)
+        const onsrc = document.getElementById('list')
+        const onsrc2 = document.createElement('li')
+        onsrc2.textContent=user_details.username +'-'+ user_details.amount + '-'+ user_details.date
+        onsrc.appendChild(onsrc2)
     }
 
-    return(
 
-        <form >
+    return(
+        <form onSubmit={handleFormSubmit}>
             <div >
                 <div className="new-expense__control">
                 <label for ='username'>Expense Tittle</label>
@@ -44,6 +64,11 @@ function ExpenseForm(){
             <div className="new-expense__actions">
                 <button type='submit'>Add Expense</button>
 
+            </div>
+            <div>
+                <li id='list'>
+
+                </li>
             </div>
 
         </form>
