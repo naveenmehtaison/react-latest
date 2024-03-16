@@ -68,13 +68,44 @@ const App =(props) => {
   const  FilterYear =enteredArr.filter(enteredArr=>{
     return (enteredArr.expenseDate.getFullYear().toString()===filteredYear)
   })
+  let Not_found = <p>Not found</p>
+  if(FilterYear.length>0 && FilterYear.length!==1){
+    Not_found=FilterYear.map((ele,i)=>(
+
+      <NewComponent onSaving={AddExpenseHandler } 
+              date ={ele.expenseDate}
+              tittle={ele.expenseTittle}
+              amount={ele.expenseAmount}
+              key={ele.id}
+              location={ele.LocationOfExpenditure}
+        />
+    ))
+  }
+  else if (FilterYear.length === 1) {
+    (Not_found = (
+        <div>
+            {FilterYear.map((ele, i) => (
+                <NewComponent
+                    onSaving={AddExpenseHandler}
+                    date={ele.expenseDate}
+                    title={ele.expenseTitle}
+                    amount={ele.expenseAmount}
+                    key={ele.id}
+                    location={ele.LocationOfExpenditure}
+                />
+            ))}
+             <p>Only single Expense here. Please add more...</p>
+        </div>
+    ));
+}
 
   return (
     
     <Card >
       <NewExpense onSaving={AddExpenseHandler }/>
       <NewComponentFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
-      {FilterYear.map((ele,i)=>(
+      {Not_found}
+      {/* {FilterYear.map((ele,i)=>(
 
         
 
@@ -85,7 +116,7 @@ const App =(props) => {
                   amount={ele.expenseAmount}
                   key={ele.id}
                   location={ele.LocationOfExpenditure}/>
-        ))}
+        ))} */}
     </Card>
   )
 
