@@ -6,44 +6,21 @@ import Card from '../Ui/card.js';
 import NewComponentFilter from './NewComponentFilter.js';
 
 const NewComponent=(props)=> {
-    const[filteredYear, setFilteredYear]=useState('2020')
-    const filterChangeHandler = selectedYear=>{
-        setFilteredYear(selectedYear)
-    }
-
-    // const [tittle, setTittle]=useState(props.tittle)
-    // const [tittle2, setTittle2]=useState(props.amount)
-    // const clickHandler =()=>{
-    //     setTittle('updated')
-
-    // }
-    // const clickHandler2 =()=>{
-    //     setTittle2('$100')
-    //     console.log(tittle2,setTittle2)
-
-    // }
-    // const DeleteExpense = () => {
-    //     let k = props.amount
+    console.log('im in props',props)
 
 
-    //     const prices = document.getElementsByClassName('expense-item__price');
-    //     for (let i = 0; i < prices.length; i++) {
-    //         const parentDescription = prices[i].parentElement;
-    //         if(prices[i].textContent==k){
-    //             parentDescription.removeChild(prices[i]);
-    //         }
-    //     }
-    // }
     return (
-        <div className='expense-item'>
-            <NewComponentFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>           
-            <NewComponentDate date={props.date}/>
-            <NewComponentDetails amount={props.amount} location={props.location} tittle={props.tittle}/>        
-            {/* <button onClick={DeleteExpense}>DeleteExpense</button><div className='expense-item__price'>{tittle2}</div>
-            <button onClick={clickHandler}>ChangeTIttle</button>
-            <button onClick={clickHandler2}>ChangeExpnese</button> */}
+        <div>            
+            <Card className='expenses'>                
+                <div className='expense-item'>                            
+                    <NewComponentDate date={props.date}/>
+                    <NewComponentDetails amount={props.amount} 
+                    location={props.location} 
+                    tittle={props.tittle}                    
+                    />
+                </div>
+            </Card>
         </div>
-
     );
 }
 export default NewComponent

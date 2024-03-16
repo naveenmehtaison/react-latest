@@ -48,28 +48,23 @@ function ExpenseForm(props){
 
     return(
         <form onSubmit={handleFormSubmit}>
-            <div >
+            <div className="new-expense__controls">
                 <div className="new-expense__control">
                 <label for ='username'>Expense Tittle</label>
                 <input id = 'username' value={enteredTittle} type = 'text' onChange={handlename}></input>
-                </div>
-                <div className="new-expense__control">
+            {/* </div>
+            <div className="new-expense__control"> */}
                 <label for = 'amount'>Amount</label>
                 <input id="amount" value={enteredamount} type='number' onChange={handleamount}></input>
-                </div>
-                <div className="new-expense__control">
+            {/* </div>
+            <div className="new-expense__control"> */}
                 <label  for='date' type='date' min='2019-01-01' max='2022-12-31'>Date</label>
                 <input id='date'  value = {entereddate}type = 'date' onChange={handledate}></input>
                 </div>
-            </div>
-            <div className="new-expense__actions">
+            {/* </div>
+            <div className="new-expense__actions"> */}
                 <button type='submit'>Add Expense</button>
 
-            </div>
-            <div>
-                <li id='list'>
-
-                </li>
             </div>
 
         </form>
