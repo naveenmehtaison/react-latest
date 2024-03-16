@@ -7,6 +7,7 @@ import ExpenseForm  from './componentss/NewExpenses/ExpenseForm';
  import Card from './componentss/Ui/card';
 // import SecondComponent from './componentss/SecondComponents';
 import NewComponentFilter from './componentss/Expenses/NewComponentFilter';
+import NewComponentlist from './componentss/Expenses/NewComponentlist';
 const App =(props) => {
   console.log('im i app',props)
 
@@ -68,43 +69,14 @@ const App =(props) => {
   const  FilterYear =enteredArr.filter(enteredArr=>{
     return (enteredArr.expenseDate.getFullYear().toString()===filteredYear)
   })
-  let Not_found = <p>Not found</p>
-  if(FilterYear.length>0 && FilterYear.length!==1){
-    Not_found=FilterYear.map((ele,i)=>(
 
-      <NewComponent onSaving={AddExpenseHandler } 
-              date ={ele.expenseDate}
-              tittle={ele.expenseTittle}
-              amount={ele.expenseAmount}
-              key={ele.id}
-              location={ele.LocationOfExpenditure}
-        />
-    ))
-  }
-  else if (FilterYear.length === 1) {
-    (Not_found = (
-        <div>
-            {FilterYear.map((ele, i) => (
-                <NewComponent
-                    onSaving={AddExpenseHandler}
-                    date={ele.expenseDate}
-                    title={ele.expenseTitle}
-                    amount={ele.expenseAmount}
-                    key={ele.id}
-                    location={ele.LocationOfExpenditure}
-                />
-            ))}
-             <p>Only single Expense here. Please add more...</p>
-        </div>
-    ));
-}
 
   return (
     
     <Card >
       <NewExpense onSaving={AddExpenseHandler }/>
       <NewComponentFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
-      {Not_found}
+
       {/* {FilterYear.map((ele,i)=>(
 
         
@@ -117,6 +89,7 @@ const App =(props) => {
                   key={ele.id}
                   location={ele.LocationOfExpenditure}/>
         ))} */}
+        <NewComponentlist items={FilterYear}/>
     </Card>
   )
 
