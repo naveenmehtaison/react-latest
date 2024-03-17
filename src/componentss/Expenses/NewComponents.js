@@ -6,7 +6,6 @@ import Card from '../Ui/card.js';
 import NewComponentFilter from './NewComponentFilter.js';
 
 const NewComponent=(props)=> {
-    console.log('im in props',props)
 
 
     return (

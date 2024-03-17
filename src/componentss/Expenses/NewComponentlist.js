@@ -13,7 +13,7 @@ const NewComponentlist=(props)=>{
                   <NewComponent
                       // onSaving={AddExpenseHandler}
                       date={ele.expenseDate}
-                      title={ele.expenseTitle}
+                      tittle={ele.expenseTittle}
                       amount={ele.expenseAmount}
                       key={ele.id}
                       location={ele.LocationOfExpenditure}
@@ -31,7 +31,7 @@ const NewComponentlist=(props)=>{
                   <NewComponent
                       // onSaving={AddExpenseHandler}
                       date={ele.expenseDate}
-                      title={ele.expenseTitle}
+                      tittle={ele.expenseTittle}
                       amount={ele.expenseAmount}
                       key={ele.id}
                       location={ele.LocationOfExpenditure}

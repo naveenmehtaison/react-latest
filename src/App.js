@@ -8,6 +8,7 @@ import ExpenseForm  from './componentss/NewExpenses/ExpenseForm';
 // import SecondComponent from './componentss/SecondComponents';
 import NewComponentFilter from './componentss/Expenses/NewComponentFilter';
 import NewComponentlist from './componentss/Expenses/NewComponentlist';
+import ExpensesChart from './componentss/Expenses/ExpensesChart';
 const App =(props) => {
   console.log('im i app',props)
 
@@ -15,24 +16,24 @@ const App =(props) => {
   const expenses = [
     {expenseDate : new Date(2023, 3, 4),
     expenseTittle :"Car Insurance",
-    expenseAmount : '$'+928.32,
+    expenseAmount : 928.32,
     LocationOfExpenditure : 'uttrakhnad',
     id: Math.random().toString()
     },
     {expenseDate : new Date(2020, 3, 4),
     expenseTittle :"refrigerator",
-    expenseAmount : '$'+98.32,
+    expenseAmount : 98.32,
     LocationOfExpenditure : 'uttrakhand',
     id: Math.random().toString()},
     {expenseDate : new Date(2020, 3, 4),
     expenseTittle :"bike",
-    expenseAmount : '$'+8918.32,
+    expenseAmount : 8918.32,
     LocationOfExpenditure :'uttrakhand',
     id: Math.random().toString()
     },
     {expenseDate : new Date(2019, 3, 4),
     expenseTittle :"house",
-    expenseAmount : '$'+98000.32,
+    expenseAmount :98000.32,
     LocationOfExpenditure : 'uttrakhand',
     id: Math.random().toString()}
   ]
@@ -47,7 +48,7 @@ const App =(props) => {
 
       expenseDate:new Date(para1.date),
       expenseTittle:para1.username,
-      expenseAmount: '$'+para1.amount,
+      expenseAmount: para1.amount,
       LocationOfExpenditure :'uttrakhand',
       id: Math.random().toString()
     }
@@ -74,6 +75,7 @@ const App =(props) => {
   return (
     
     <Card >
+
       <NewExpense onSaving={AddExpenseHandler }/>
       <NewComponentFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
 
@@ -89,6 +91,7 @@ const App =(props) => {
                   key={ele.id}
                   location={ele.LocationOfExpenditure}/>
         ))} */}
+        <ExpensesChart expenses={FilterYear}/>
         <NewComponentlist items={FilterYear}/>
     </Card>
   )
